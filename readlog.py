@@ -3,11 +3,11 @@ import sys
 def count_keywords(lines,keywords):
     counts = {}
     for kw in keywords:
-        counts[kw] = 0
-    for line in lines:
+        counts[kw] = []
+    for i, line in enumerate(lines,1):
         for kw in keywords:
             if kw in line:
-                counts[kw] = counts[kw] + 1
+                counts[kw].append("L" + str(i) + ": " + line)
     return counts
 
 if len(sys.argv) < 3:
@@ -30,8 +30,9 @@ print(" " + filename + " 统计结果")
 print("=" * 26)
 
 for keyword in counts:
-    print(keyword.ljust(8), counts[keyword])
-
+    print(keyword.ljust(8), len(counts[keyword]))
+    for item in counts[keyword]:
+        print("    " + item)
 print("-" * 26)
 print("总行数", len(lines))
 
