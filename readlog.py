@@ -10,6 +10,9 @@ def count_keywords(lines,keywords):
                 counts[kw] = counts[kw] + 1
     return counts
 
+if len(sys.argv) < 3:
+    print("用法: python3 readlog.py <日志文件> <关键词1> ...")
+    sys.exit(1)
 
 filename = sys.argv[1]
 keywords = sys.argv[2:]
@@ -23,7 +26,7 @@ lines = content.splitlines()
 counts = count_keywords(lines, keywords)
 
 print("=" * 26)
-print(" " + filename + "统计结果")
+print(" " + filename + " 统计结果")
 print("=" * 26)
 
 for keyword in counts:
