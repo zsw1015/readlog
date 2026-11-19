@@ -1,0 +1,9 @@
+ERROR disk full
+INFO started
+ERROR timeout
+INFO stopped
+ERROR connection refused
+WARN low memory
+ERROR disk full
+INFO restarted
+WARN low memory
