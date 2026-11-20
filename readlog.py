@@ -1,4 +1,5 @@
 import sys
+import datetime
 
 def count_keywords(lines,keywords):
     counts = {}
@@ -41,5 +42,13 @@ report.append("总行数 " + str(len(lines)))
 
 for r in report:
     print(r)
+outname = "report_" + str(datetime.date.today()) + ".txt"
+f = open(outname, "w")
+for r in report:
+    f.write(r + "\n")
+f.close()
+
+print("报告已保存到 " + outname)
+
 
 
