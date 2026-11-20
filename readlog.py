@@ -5,8 +5,9 @@ def count_keywords(lines,keywords):
     for kw in keywords:
         counts[kw] = []
     for i, line in enumerate(lines,1):
+        lower_line = line.lower()
         for kw in keywords:
-            if kw in line:
+            if kw.lower() in lower_line:
                 counts[kw].append("L" + str(i) + ": " + line)
     return counts
 
