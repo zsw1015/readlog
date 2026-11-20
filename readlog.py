@@ -26,15 +26,20 @@ lines = content.splitlines()
 
 counts = count_keywords(lines, keywords)
 
-print("=" * 26)
-print(" " + filename + " 统计结果")
-print("=" * 26)
+report = []
+report.append("=" * 26)
+report.append(" " + filename + " 统计结果")
+report.append("=" * 26)
 
 for keyword in counts:
-    print(keyword.ljust(8), len(counts[keyword]))
+    report.append(keyword.ljust(8) + " " + str(len(counts[keyword])))
     for item in counts[keyword]:
-        print("    " + item)
-print("-" * 26)
-print("总行数", len(lines))
+        report.append("    " + item)
+
+report.append("-" * 26)
+report.append("总行数 " + str(len(lines)))
+
+for r in report:
+    print(r)
 
 
